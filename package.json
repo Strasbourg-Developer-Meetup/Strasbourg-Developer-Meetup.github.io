@@ -31,45 +31,8 @@
         "glob-parent": "6.0.2"
     },
     "browserslist": "> 2%, not dead",
-    "eslintConfig": {
-        "env": {
-            "browser": true,
-            "es6": true
-        },
-        "parser": "@babel/eslint-parser",
-        "parserOptions": {
-            "sourceType": "module",
-            "allowImportExportEverywhere": true,
-            "requireConfigFile": false
-        },
-        "globals": {
-            "module": false,
-            "console": false,
-            "unescape": false,
-            "define": false,
-            "exports": false
-        },
-        "rules": {
-            "curly": 0,
-            "eqeqeq": 2,
-            "wrap-iife": [
-                2,
-                "any"
-            ],
-            "no-use-before-define": [
-                2,
-                {
-                    "functions": false
-                }
-            ],
-            "new-cap": 2,
-            "no-caller": 2,
-            "dot-notation": 0,
-            "no-eq-null": 2,
-            "no-unused-expressions": 0
-        }
-    },
     "dependencies": {
+        "@babel/eslint-parser": "^7.21.8",
         "http-server": "^14.1.1",
         "reveal.js": "^4.5.0"
     }
