@@ -20,12 +20,12 @@
         <div class="slides">
             <section>
                 <a href="https://revealjs.com">
-                    <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo"
-                        style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+                    <img src="/assets/images/meetup20230511.jpg" alt="meetup 11/05/2023"
+                        style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
                 </a>
                 <h3>Clean Architecture</h3>
                 <p>
-                    <small>Présenté par <a href="http://hakim.se">Maël Sicard-Cras</a></small>
+                    <small>Présenté par <a href="https://github.com/MSC29">Maël Sicard-Cras</a></small>
                 </p>
             </section>
 
@@ -34,77 +34,125 @@
                 <p class="fragment">Qui suis-je?</p>
                 <p class="fragment">Qui êtes vous?</p>
                 <p><span class="fragment">Vous & la Clean Architecture?</span></p>
+
+                <aside class="notes">
+                    <ul>
+                        <li>dev/non-dev? manager?</li>
+                        <li>language?</li>
+                        <li>langue?</li>
+                        <li>api rest?</li>
+                    </ul>
+                </aside>
             </section>
 
             <section>
                 <section data-background="#dddddd">
-                    <h2>Quels sont les obstacles typiques pour les développeurs ?</h2>
+                    <h2>Les obstacles typiques rencontrés par les développeurs</h2>
                 </section>
+                <!-- not easy to explain -->
+                <!-- should transition to CA below -->
                 <section data-background="#dddddd">
                     <h2>Changement de Technologie</h2>
-                    <p>Mysql vs MariaDB, Mongo vs DocumentDB, ...</p>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>influence sur la logique business</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#dddddd">
-                    <h2>Breaking changes</h2>
-                    <p>Change une table SQL et la réponse de l'API change, ...</p>
+                    <h2>Internal breaking changes</h2>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>changement d'interface</li>
+                            <li>code qui ne "marche" plus</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#dddddd">
                     <h2>Code peu clair</h2>
-                    <p>Logique métier mélangée avec le reste du code, ...</p>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>difficile à maintenir</li>
+                            <li>difficulté à travailler en équipe</li>
+                            <li>à lire le code</li>
+                            <li>code innattendu</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#dddddd">
                     <h2>Code non testable</h2>
-                    <p>Logique métier non testée, difficile d'identifier quoi tester, ...</p>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>impossible de refactoriser</li>
+                            <li>failble confiance en son application</li>
+                        </ul>
+                    </aside>
                 </section>
-                <section data-background="#dddddd">
-                    <h2>Qualité peu élevée</h2>
-                    <p>Dûr de s'y retrouver dans le code, chaque dévelopeur code à sa manière, ...</p>
-                </section>
+
+                <aside class="notes">
+                </aside>
             </section>
 
             <section>
-                <p>Alors parlons de ...</p>
-                <h2 class="r-fit-text">CLEAN ARCHITECTURE</h2>
-            </section>
+                <section>
+                    <p>Alors parlons de ...</p>
+                    <h2 class="r-fit-text">CLEAN ARCHITECTURE</h2>
 
-            <section>
-                <section data-background="#717286">
-                    <h2>La théorie</h2>
+                    <aside class="notes">
+                        <ul>
+                            <li>permet d'adresser ce dont on vient de parler</li>
+                            <li>ensemble de pratiques combinées</li>
+                            <li>ensemble de pratiques aggrégées</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#717286">
-                    <h2>Le Domain Driven Design</h2>
-                    <img class="r-frame" style="border: none;" width="40%" data-src="/assets/images/DDD.png" alt="ddd">
-                </section>
-                <section data-background="#717286">
-                    <h2>L'architecture héxagonale</h2>
-                    <img class="r-frame" width="85%" data-src="/assets/images/hex.jpeg" alt="hex">
-                </section>
-                <section data-background="#717286">
-                    <h2>Les strates de la Clean Architecture</h2>
-                    <img class="r-frame" width="60%" data-src="/assets/images/CleanArchitectureCone.jpg" alt="hex">
-                </section>
-                <section data-background="#717286">
-                    <h2>Dependency Rule</h2>
-                    <img class="r-frame" width="65%" data-src="/assets/images/CleanArchitecture.jpg" alt="ca">
+                    <h2>Concept charactérisé par:</h2>
+                    <ul>
+                        <li class="fragment">Bonnes pratiques regroupées</li>
+                        <li class="fragment">Indépendant du framework</li>
+                        <li class="fragment">Indépendant des technologies</li>
+                        <li class="fragment">Testabilité</li>
+                        <li class="fragment">Clean code</li>
+                    </ul>
                 </section>
             </section>
 
             <section>
                 <section data-background="#C0C0C0">
-                    <h2>La pratique</h2>
+                    <h2>La théorie</h2>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>PLAN</li>
+                            <li>Parler des concepts qui permettent d'illustrer la CA</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#C0C0C0">
                     <h2>Notre code</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Parler des problématiques de developpeurs</li>
+                                <li>Ce code va illustrer les concepts de la Clean Architecture</li>
+                            </ul>
+                        </aside>
+
+                        <code class="hljs javascript" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
                             const fastify = require('fastify')({ logger: true })
 
-                            fastify.get('/api/v1/dogs', async (request, reply) => {
-                                return await orm.getRepository(DogFact).find();
+                            fastify.get('/api/v1/malwares', async (request, reply) => {
+                                return await orm.getRepository(Malware).find();
                             })
                             
-                            fastify.get('/api/v1/dogs/:factId', async (request, reply) => {
-                                return await orm.getRepository(DogFact).findOne(request.params.factId);
+                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
+                                return await orm.getRepository(Malware).findOne(request.params.factId);
                             })
 
                             const start = async () => {
@@ -118,32 +166,42 @@
                 <section data-background="#C0C0C0">
                     <h2>Le Domain Driven Design</h2>
                     <img class="r-frame" style="border: none;" width="40%" data-src="/assets/images/DDD.png" alt="ddd">
+
+                    <aside class="notes">
+                        <ul>
+                            <li>placing the project's primary focus on the core domain and domain logic;</li>
+                            <li>basing complex designs on a model of the domain;</li>
+                            <li>initiating a creative collaboration between technical and domain experts to iteratively
+                                refine a conceptual model that addresses particular domain problems.</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#C0C0C0">
                     <h2>Le Domain Driven Design</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
+                        <!-- show with highlights instead of using mouse -->
+                        <code class="hljs javascript" data-line-numbers="|3-6|8,12|17,21" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
                             const fastify = require('fastify')({ logger: true })
 
-                            interface DogFactEntity {
-                                factId: number;
-                                fact: string;
+                            interface MalwareEntity {
+                                actor: string;
+                                malwareName: string;
                             }
 
-                            async getAllDogFacts(): Promise&lt;DogFactEntity[]&gt; {
-                                return await orm.getRepository(DogFact).find();
+                            async getAllMalwares(): Promise&lt;MalwareEntity[]&gt; {
+                                return await orm.getRepository(Malware).find();
                             }
                             
-                            async getDogFactById(factId: number): Promise&lt;DogFactEntity&gt; {
-                                return await orm.getRepository(DogFact).findOne(factId);
+                            async getMalwareById(factId: number): Promise&lt;MalwareEntity&gt; {
+                                return await orm.getRepository(Malware).findOne(factId);
                             }
 
-                            fastify.get('/api/v1/dogs', async (request, reply) => {
-                                return await getAllDogFacts()
+                            fastify.get('/api/v1/malwares', async (request, reply) => {
+                                return await getAllMalwares()
                             })
                             
-                            fastify.get('/api/v1/dogs/:factId', async (request, reply) => {
-                                return await getDogFactById(request.params.factId)
+                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
+                                return await getMalwareById(request.params.factId)
                             })
 
                             const start = async () => {
@@ -161,31 +219,32 @@
                 <section data-background="#717286">
                     <h2>L'architecture héxagonale</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
+                        <!-- show with highlights instead of using mouse -->
+                        <code class="hljs javascript" data-line-numbers="|3-7|9-16|18-25" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
                             const fastify = require('fastify')({ logger: true })
 
                             // Domain
-                            interface DogFactEntity {
-                                factId: number;
-                                fact: string;
+                            interface MalwareEntity {
+                                actor: string;
+                                malwareName: string;
                             }
 
-                            // SPI (API <---> Internal Database)
-                            async getAllDogFacts(): Promise&lt;DogFactEntity[]&gt; {
-                                return await orm.getRepository(DogFact).find();
+                            // SPI (Application <---> Database)
+                            async getAllMalwares(): Promise&lt;MalwareEntity[]&gt; {
+                                return await orm.getRepository(Malware).find();
                             }
                             
-                            async getDogFactById(factId: number): Promise&lt;DogFactEntity&gt; {
-                                return await orm.getRepository(DogFact).findOne(factId);
+                            async getMalwareById(factId: number): Promise&lt;MalwareEntity&gt; {
+                                return await orm.getRepository(Malware).findOne(factId);
                             }
 
-                            // API (Clients <---> API)
-                            fastify.get('/api/v1/dogs', async (request, reply) => {
-                                return await getAllDogFacts()
+                            // API (Clients <---> Application)
+                            fastify.get('/api/v1/malwares', async (request, reply) => {
+                                return await getAllMalwares()
                             })
                             
-                            fastify.get('/api/v1/dogs/:factId', async (request, reply) => {
-                                return await getDogFactById(request.params.factId)
+                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
+                                return await getMalwareById(request.params.factId)
                             })
 
                             const start = async () => {
@@ -203,7 +262,7 @@
                 <section data-background="#C0C0C0">
                     <h2>Les strates de la Clean Architecture</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
+                        <code class="hljs javascript" data-line-numbers="|1-7|9-16|18-25|27-32|34-39|41-45"  data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
                             // 1 - EXTERNAL INTERFACES: src/infrastructure/app.ts
                             const fastify = require('fastify')({ logger: true })
 
@@ -213,41 +272,41 @@
                             start()
                             
                             // 2 - ADAPTER (SPI): src/adapter/spi/db/repository.ts
-                            async getAllDogFacts(): Promise&lt;DogFactEntity[]&gt; {
-                                return await orm.getRepository(DogFact).findOne(factId);
+                            async getAllMalwares(): Promise&lt;MalwareEntity[]&gt; {
+                                return await orm.getRepository(Malware).findOne(factId);
                             }
                             
-                            async getDogFactById(factId: number): Promise&lt;DogFactEntity&gt; {
-                                return await orm.getRepository(DogFact).find();
+                            async getMalwareById(factId: number): Promise&lt;MalwareEntity&gt; {
+                                return await orm.getRepository(Malware).find();
                             }
 
                             // 2 - ADAPTER (API): src/adapter/api/controller.ts
-                            fastify.get('/api/v1/dogs', async (request, reply) => {
-                                return await new GetAllDogFactsUseCase().execute()
+                            fastify.get('/api/v1/malwares', async (request, reply) => {
+                                return await new GetAllMalwaresUseCase().execute()
                             })
                             
-                            fastify.get('/api/v1/dogs/:factId', async (request, reply) => {
-                                return await new GetOneDogFactByIdUseCase(request.params.factId).execute()
+                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
+                                return await new GetOneMalwareByIdUseCase(request.params.factId).execute()
                             })
 
-                            // 3 - USE CASES: src/application/usecases/getAllDogFactsUseCase.ts
-                            class GetAllDogFactsUseCase{
-                                async execute(): Promise&lt;DogFactEntity[]&gt; {
-                                    return await repository.getAllDogFacts();
+                            // 3 - USE CASES: src/application/usecases/getAllMalwaresUseCase.ts
+                            class GetAllMalwaresUseCase{
+                                async execute(): Promise&lt;MalwareEntity[]&gt; {
+                                    return await repository.getAllMalwares();
                                 }
                             }
 
-                            // 3 - USE CASES: src/application/usecases/GetOneDogFactByIdUseCase.ts
-                            class GetOneDogFactByIdUseCase{
-                                async execute(): Promise&lt;DogFactEntity&gt; {
-                                    return await repository.getDogFactById(factId);
+                            // 3 - USE CASES: src/application/usecases/GetOneMalwareByIdUseCase.ts
+                            class GetOneMalwareByIdUseCase{
+                                async execute(): Promise&lt;MalwareEntity&gt; {
+                                    return await repository.getMalwareById(factId);
                                 }
                             }
                             
                             // 4 - ENTITIES: src/domain/entities.ts
-                            interface DogFactEntity {
-                                factId: number;
-                                fact: string;
+                            interface MalwareEntity {
+                                actor: string;
+                                malwareName: string;
                             }
                         </code>
                     </pre>
@@ -260,21 +319,21 @@
                 <section data-background="#C0C0C0">
                     <h2>Dependency Rule incorrecte</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-line-numbers="|1-3|7|10" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
-                            //current path: src/application/usecases/GetOneDogFactByIdUseCase.ts
+                        <code class="hljs javascript" data-line-numbers="|1-3|7|10" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
+                            //current path: src/application/usecases/GetOneMalwareByIdUseCase.ts
                             
-                            import {DogFactsRepository} from "src/adapter/spi/db/dog_facts_repository";
-                            import {DogFactEntity} from "src/domain/entities/dog_fact_entity";
+                            import {MalwaresMySqlRepository} from "src/adapter/spi/db/malwares_repository";
+                            import {MalwareEntity} from "src/domain/entities/malware_entity";
 
-                            export class GetAllDogFactsUseCase {
-                                private repository: DogFactsRepository;
+                            export class GetAllMalwaresUseCase {
+                                private repository: MalwaresMySqlRepository;
                             
                                 constructor() {
-                                    this.repository = new DogFactsRepository();
+                                    this.repository = new MalwaresMySqlRepository();
                                 }
                             
-                                async execute(): Promise&lt;DogFactEntity[]&gt; {
-                                    return await this.repository.getAllDogFacts();
+                                async execute(): Promise&lt;MalwareEntity[]&gt; {
+                                    return await this.repository.getAllMalwares();
                                 }
                             }
                         </code>
@@ -283,27 +342,29 @@
                 <section data-background="#C0C0C0">
                     <h2>Dependency Rule correcte</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-line-numbers="|1-3|7|9" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
-                            //current path: src/application/usecases/GetOneDogFactByIdUseCase.ts
+                        <code class="hljs javascript" data-line-numbers="|1-3|7|9" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
+                            //current path: src/application/usecases/GetOneMalwareByIdUseCase.ts
                             
-                            import {DogFactsRepositoryInterface} from "src/application/repositories/dog_facts_repository_interface";
-                            import {DogFactEntity} from "src/domain/entities/dog_fact_entity";
+                            import {MalwaresRepositoryInterface} from "src/application/repositories/malwares_repository_interface";
+                            import {MalwareEntity} from "src/domain/entities/malware_entity";
 
-                            export class GetAllDogFactsUseCase {
-                                private repository: DogFactsRepositoryInterface;
+                            export class GetAllMalwaresUseCase {
+                                private repository: MalwaresRepositoryInterface;
                             
-                                constructor(repository: DogFactsRepositoryInterface) {
+                                constructor(repository: MalwaresRepositoryInterface) {
                                     this.repository = repository;
                                 }
                             
-                                async execute(): Promise&lt;DogFactEntity[]&gt; {
-                                    return await this.repository.getAllDogFacts();
+                                async execute(): Promise&lt;MalwareEntity[]&gt; {
+                                    return await this.repository.getAllMalwares();
                                 }
                             }
                         </code>
                     </pre>
                 </section>
             </section>
+
+            <!-- summarize what we learnt with data flow & hex from below? -->
 
             <section>
                 <section data-background="#737373">
@@ -313,7 +374,7 @@
                     <h2>Cats & Dogs Facts API</h2>
                     <ul>
                         <li class="fragment">API de faits divers sur les animaux</li>
-                        <li class="fragment">2 endpoints par animal (tous ou certains faits)</li>
+                        <li class="fragment">2 UseCases par animal (tous ou certains faits)</li>
                         <li class="fragment">Structure JSON différentes entre animaux</li>
                         <li class="fragment">Données lues depuis la DB et API externe</li>
                     </ul>
@@ -330,6 +391,13 @@
                         <li>clean-architecture-rust</li>
                         <li>clean-architecture-go</li>
                     </ul>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Challenge technique intéressant</li>
+                            <li>Prouve que la CA est indépendante du framework et language</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#717286">
                     <h2>Hexagonal Architecture</h2>
@@ -341,6 +409,12 @@
                         data-src="/assets/images/lifecycle2.png" alt="lifecycle2">
                 </section>
             </section>
+
+            <!-- 1st time; ~40min before showing code -->
+
+            <!-- code demo will likely take 15min -->
+
+            <!-- talk about mappers when? -->
 
             <section>
                 <section data-background="#4C4C4C">
@@ -354,27 +428,6 @@
                         <li class="fragment">On migre le service HTTP & les données</li>
                         <li class="fragment">Nos clients ne doivent pas s'en rendre compte</li>
                     </ul>
-                </section>
-                <section data-background="#C0C0C0">
-                    <h2>Notre code</h2>
-                    <pre data-id="code-animation">
-                        <code class="hljs javascript" data-line-numbers="4,8" data-trim data-line-numbers style="width: 140%; margin-left: -20%;">
-                            const fastify = require('fastify')({ logger: true })
-
-                            fastify.get('/api/v1/cats', async (request, reply) => {
-                                return await http.get(`${api}/facts`);
-                            })
-                            
-                            fastify.get('/api/v1/cats/:factId', async (request, reply) => {
-                                return await http.get(`${api}/fact/${request.params.factId}`);
-                            })
-
-                            const start = async () => {
-                                await fastify.listen({ port: 3000 })
-                            }
-                            start()
-                        </code>
-                    </pre>
                 </section>
                 <section data-background="#4C4C4C">
                     <p><a href="https://github.com/MSC29/clean-architecture-typescript/pull/4/files">PR</a></p>
@@ -395,6 +448,15 @@
                         <li class="fragment">Dependency rule</li>
                         <li class="fragment">Dependency injection</li>
                     </ul>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>DDD: permet de définir ce que fait l'application</li>
+                            <li>HEX: délimitation claire des interfaces</li>
+                            <li>DEP RULE: assure l'isolation des UseCase</li>
+                            <li>DEP INJ: mechamisme pour DEP RULE & Testabilité</li>
+                        </ul>
+                    </aside>
                 </section>
                 <section data-background="#4C4C4C">
                     <h2>Pros (& cons)</h2>
