@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>Introduction à la Clean Architecture</title>
 
     <link rel="stylesheet" href="node_modules/reveal.js/dist/reset.css">
     <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
@@ -23,13 +23,13 @@
                     <img src="/assets/images/meetup20230511.jpg" alt="meetup 11/05/2023"
                         style="height: 250px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
                 </a>
-                <h3>Clean Architecture</h3>
+                <h3>Introduction à la Clean Architecture</h3>
                 <p>
                     <small>Présenté par <a href="https://github.com/MSC29">Maël Sicard-Cras</a></small>
                 </p>
             </section>
 
-            <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+            <section data-transition="slide" data-background="#f1c232" data-background-transition="zoom">
                 <h2>Introduction</h2>
                 <p class="fragment">Qui suis-je?</p>
                 <p class="fragment">Qui êtes vous?</p>
@@ -110,7 +110,7 @@
                         </ul>
                     </aside>
                 </section>
-                <section data-background="#717286">
+                <section data-background="#737373">
                     <h2>Concept charactérisé par:</h2>
                     <ul>
                         <li class="fragment">Bonnes pratiques regroupées</li>
@@ -123,7 +123,7 @@
             </section>
 
             <section>
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>La théorie</h2>
 
                     <aside class="notes">
@@ -133,7 +133,7 @@
                         </ul>
                     </aside>
                 </section>
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Notre code</h2>
                     <pre data-id="code-animation">
 
@@ -151,8 +151,8 @@
                                 return await orm.getRepository(Malware).find();
                             })
                             
-                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
-                                return await orm.getRepository(Malware).findOne(request.params.factId);
+                            fastify.get('/api/v1/malwares/:id', async (request, reply) => {
+                                return await orm.getRepository(Malware).findOne(request.params.id);
                             })
 
                             const start = async () => {
@@ -163,7 +163,7 @@
                     </pre>
                 </section>
 
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Le Domain Driven Design</h2>
                     <img class="r-frame" style="border: none;" width="40%" data-src="/assets/images/DDD.png" alt="ddd">
 
@@ -176,7 +176,7 @@
                         </ul>
                     </aside>
                 </section>
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Le Domain Driven Design</h2>
                     <pre data-id="code-animation">
                         <!-- show with highlights instead of using mouse -->
@@ -192,16 +192,16 @@
                                 return await orm.getRepository(Malware).find();
                             }
                             
-                            async getMalwareById(factId: number): Promise&lt;MalwareEntity&gt; {
-                                return await orm.getRepository(Malware).findOne(factId);
+                            async getMalwareById(id: number): Promise&lt;MalwareEntity&gt; {
+                                return await orm.getRepository(Malware).findOne(id);
                             }
 
                             fastify.get('/api/v1/malwares', async (request, reply) => {
                                 return await getAllMalwares()
                             })
                             
-                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
-                                return await getMalwareById(request.params.factId)
+                            fastify.get('/api/v1/malwares/:id', async (request, reply) => {
+                                return await getMalwareById(request.params.id)
                             })
 
                             const start = async () => {
@@ -212,11 +212,11 @@
                     </pre>
                 </section>
 
-                <section data-background="#717286">
+                <section data-background="#737373">
                     <h2>L'architecture héxagonale</h2>
                     <img class="r-frame" width="85%" data-src="/assets/images/hex.jpeg" alt="hex">
                 </section>
-                <section data-background="#717286">
+                <section data-background="#737373">
                     <h2>L'architecture héxagonale</h2>
                     <pre data-id="code-animation">
                         <!-- show with highlights instead of using mouse -->
@@ -234,8 +234,8 @@
                                 return await orm.getRepository(Malware).find();
                             }
                             
-                            async getMalwareById(factId: number): Promise&lt;MalwareEntity&gt; {
-                                return await orm.getRepository(Malware).findOne(factId);
+                            async getMalwareById(id: number): Promise&lt;MalwareEntity&gt; {
+                                return await orm.getRepository(Malware).findOne(id);
                             }
 
                             // API (Clients <---> Application)
@@ -243,8 +243,8 @@
                                 return await getAllMalwares()
                             })
                             
-                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
-                                return await getMalwareById(request.params.factId)
+                            fastify.get('/api/v1/malwares/:id', async (request, reply) => {
+                                return await getMalwareById(request.params.id)
                             })
 
                             const start = async () => {
@@ -255,11 +255,11 @@
                     </pre>
                 </section>
 
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Les strates de la Clean Architecture</h2>
                     <img class="r-frame" width="60%" data-src="/assets/images/CleanArchitectureCone.jpg" alt="hex">
                 </section>
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Les strates de la Clean Architecture</h2>
                     <pre data-id="code-animation">
                         <code class="hljs javascript" data-line-numbers="|1-7|9-16|18-25|27-32|34-39|41-45"  data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
@@ -273,10 +273,10 @@
                             
                             // 2 - ADAPTER (SPI): src/adapter/spi/db/repository.ts
                             async getAllMalwares(): Promise&lt;MalwareEntity[]&gt; {
-                                return await orm.getRepository(Malware).findOne(factId);
+                                return await orm.getRepository(Malware).findOne(id);
                             }
                             
-                            async getMalwareById(factId: number): Promise&lt;MalwareEntity&gt; {
+                            async getMalwareById(id: number): Promise&lt;MalwareEntity&gt; {
                                 return await orm.getRepository(Malware).find();
                             }
 
@@ -285,8 +285,8 @@
                                 return await new GetAllMalwaresUseCase().execute()
                             })
                             
-                            fastify.get('/api/v1/malwares/:factId', async (request, reply) => {
-                                return await new GetOneMalwareByIdUseCase(request.params.factId).execute()
+                            fastify.get('/api/v1/malwares/:id', async (request, reply) => {
+                                return await new GetOneMalwareByIdUseCase(request.params.id).execute()
                             })
 
                             // 3 - USE CASES: src/application/usecases/getAllMalwaresUseCase.ts
@@ -299,7 +299,7 @@
                             // 3 - USE CASES: src/application/usecases/GetOneMalwareByIdUseCase.ts
                             class GetOneMalwareByIdUseCase{
                                 async execute(): Promise&lt;MalwareEntity&gt; {
-                                    return await repository.getMalwareById(factId);
+                                    return await repository.getMalwareById(id);
                                 }
                             }
                             
@@ -312,14 +312,14 @@
                     </pre>
                 </section>
 
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Dependency Rule</h2>
                     <img class="r-frame" width="65%" data-src="/assets/images/CleanArchitecture.jpg" alt="ca">
                 </section>
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Dependency Rule incorrecte</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-line-numbers="|1-3|7|10" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
+                        <code class="hljs javascript" data-line-numbers="1|10,3" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
                             //current path: src/application/usecases/GetOneMalwareByIdUseCase.ts
                             
                             import {MalwaresMySqlRepository} from "src/adapter/spi/db/malwares_repository";
@@ -339,10 +339,10 @@
                         </code>
                     </pre>
                 </section>
-                <section data-background="#C0C0C0">
+                <section data-background="#737373">
                     <h2>Dependency Rule correcte</h2>
                     <pre data-id="code-animation">
-                        <code class="hljs javascript" data-line-numbers="|1-3|7|9" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
+                        <code class="hljs javascript" data-line-numbers="1|9-10,3" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
                             //current path: src/application/usecases/GetOneMalwareByIdUseCase.ts
                             
                             import {MalwaresRepositoryInterface} from "src/application/repositories/malwares_repository_interface";
@@ -361,6 +361,12 @@
                             }
                         </code>
                     </pre>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>Permet d'empêcher de faire la faute</li>
+                        </ul>
+                    </aside>
                 </section>
             </section>
 
@@ -399,25 +405,33 @@
                         </ul>
                     </aside>
                 </section>
-                <section data-background="#717286">
+                <section data-background="#737373">
                     <h2>Hexagonal Architecture</h2>
                     <img data-src="/assets/images/hex.drawio.png" alt="hex_api">
                 </section>
-                <section data-background="#717286">
+                <section data-background="#737373">
                     <h2>Data flow</h2>
                     <img width="120%" style="max-width: 120%; margin-left: -10%"
                         data-src="/assets/images/lifecycle2.png" alt="lifecycle2">
                 </section>
+                <section data-background="#737373">
+                    <h2>VsCode</h2>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>DB Drivers in Adapter?</li>
+                            <li>Talk about mappers</li>
+                        </ul>
+                    </aside>
+                </section>
             </section>
 
-            <!-- 1st time; ~40min before showing code -->
+            <!-- 2nd time; ~30min before showing code -->
 
             <!-- code demo will likely take 15min -->
 
-            <!-- talk about mappers when? -->
-
             <section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <h2>Cas pratique</h2>
                 </section>
                 <section data-background="#737373">
@@ -429,7 +443,7 @@
                         <li class="fragment">Nos clients ne doivent pas s'en rendre compte</li>
                     </ul>
                 </section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <p><a href="https://github.com/MSC29/clean-architecture-typescript/pull/4/files">PR</a></p>
                     <p>Video Typescript</p>
                     <p>Video Python</p>
@@ -437,10 +451,10 @@
             </section>
 
             <section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <h2>Conclusion</h2>
                 </section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <h2>Résumé</h2>
                     <ul>
                         <li class="fragment">Domain driven design</li>
@@ -458,7 +472,7 @@
                         </ul>
                     </aside>
                 </section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <h2>Pros (& cons)</h2>
                     <ul>
                         <li class="fragment">Isolation des domaines & logiques métier</li>
@@ -467,16 +481,45 @@
                         <li class="fragment">Aisance de test</li>
                     </ul>
                 </section>
+                <section data-background="#737373">
+                    <h2>Notre code ?</h2>
+                    <pre data-id="code-animation">
+
+                        <code class="hljs javascript" data-trim data-line-numbers style="width: 130%; margin-left: -15.5%;">
+                            const fastify = require('fastify')({ logger: true })
+
+                            fastify.get('/api/v1/malwares', async (request, reply) => {
+                                return await orm.getRepository(Malware).find();
+                            })
+                            
+                            fastify.get('/api/v1/malwares/:id', async (request, reply) => {
+                                return await orm.getRepository(Malware).findOne(request.params.id);
+                            })
+
+                            const start = async () => {
+                                await fastify.listen({ port: 3000 })
+                            }
+                            start()
+                        </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <blockquote>
+                        &ldquo;It is not enough for code to work...&rdquo;
+                    </blockquote>
+                    <i>Robert C. Martin (Uncle Bob)’s Clean Code: A Handbook of Agile Software Craftsmanship</i>
+                </section>
             </section>
 
             <section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <h2>Merci</h2>
                 </section>
             </section>
 
             <section>
-                <section data-background="#4C4C4C">
+                <section data-background="#737373">
                     <h2>Q&A</h2>
                 </section>
             </section>
