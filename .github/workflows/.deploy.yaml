@@ -27,11 +27,12 @@ jobs:
         with:
           persist-credentials: false
       - name: Cache node-modules 💽
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
       # Runs a single command using the runners shell
       - name: Install and Build 🔧
         run: npm install
